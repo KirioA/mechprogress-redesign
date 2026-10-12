@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мехпрогресс — запчасти для бульдозеров и экскаваторов в Минске</title>
+<meta name="description" content="Широкий ассортимент запасных частей к бульдозерам Shantui SD-16, Т-130, Т-170, Б-10, ДСТ-Урал, экскаватору ЭО-3223 и другим. Гарантия до 18 месяцев, доставка 1–2 дня.">
+<link rel="canonical" href="https://mechprogress.by">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta property="og:title" content="Продажа запасных частей для бульдозеров и экскаваторов.">
+<meta property="og:description" content="Широкий ассортимент запасных частей к бульдозерам Shantui SD-16, Т-130, Т-170, Б-10, ДСТ-Урал, экскаватору ЭО-3223 и другим.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mechprogress.by">
+<meta property="og:image" content="https://mechprogress.by/img/prod-1.png">
+<script>
+// Yandex.Metrika 90633169, as on the old site. Only on the real domain, so demo visits don't skew stats.
+if (location.hostname.endsWith('mechprogress.by')) {
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+  ym(90633169, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f3ef; --band:#ebe9e3; --card:#fff; --line:#dcd9d0;
+  --ink:#16181b; --body:#3a3e44; --muted:#5f636a;
+  --yellow:#f6b500; --yellow-soft:#fff3cc; --graphite:#1b1d20;
+  --r:20px; --max:1200px;
+  --h:'Unbounded',system-ui,sans-serif; --t:'Onest',system-ui,sans-serif; --m:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font:400 18px/1.55 var(--t);color:var(--body);background:var(--bg);overflow-x:hidden}
+/* faint blueprint grid, as on sync-agency */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(circle,#c9c5bb 1px,transparent 1.2px);background-size:28px 28px;opacity:.45}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{color:var(--ink);font-family:var(--h);font-weight:700;line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4vw,44px)}
+h3{font:600 20px/1.3 var(--t);letter-spacing:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:112px 0}
+.eyebrow{font:500 13px/1 var(--m);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;border:0;cursor:pointer;
+  font:600 16px/1 var(--t);text-decoration:none;transition:transform .2s,background .2s}
+.btn-y{background:var(--yellow);color:var(--ink)}
+.btn-y:hover{background:#ffc21a;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#2b2e33}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+/* intro wipe */
+.wipe{position:fixed;inset:0;z-index:100;background:var(--yellow);pointer-events:none}
+
+/* nav: floating glass pill */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(calc(100% - 32px),1180px);
+  display:flex;align-items:center;gap:24px;padding:10px 10px 10px 24px;border-radius:999px;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(0,0,0,.06);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.nav.hide{transform:translate(-50%,-140%)}
+.nav .logo img{height:24px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin-left:auto}
+.nav ul a{text-decoration:none;font-weight:500;font-size:15px;color:var(--body)}
+.nav ul a:hover{color:var(--ink)}
+.nav .tel{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink);white-space:nowrap;line-height:1.2}
+.nav .tel small{display:block;font:400 12px/1.2 var(--t);color:var(--muted)}
+.nav .tels{position:relative;margin-left:auto}
+.nav ul + .tels{margin-left:0}
+.nav .tel2{position:absolute;left:-12px;top:100%;margin-top:8px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:12px;opacity:0;visibility:hidden;transition:opacity .2s}
+.nav .tels:hover .tel2,.nav .tels:focus-within .tel2{opacity:1;visibility:visible}
+.nav .btn{height:44px;padding:0 20px;font-size:15px}
+.nav .bar{position:absolute;left:28px;right:28px;bottom:-1px;height:2px;background:var(--yellow);transform-origin:left;transform:scaleX(var(--p,0));border-radius:2px}
+
+/* hero */
+.hero{padding:150px 0 40px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(34px,4.3vw,60px)}
+.hero h1 .line{white-space:nowrap}
+.hero h1 .line{display:block}
+.hero h1 .accent{position:relative;white-space:nowrap}
+.hero h1 .accent::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.06em;height:.28em;background:var(--yellow);z-index:-1;border-radius:4px;transform-origin:left}
+.pill{display:inline-block;vertical-align:middle;width:1.9em;height:.9em;border-radius:999px;overflow:hidden;margin:0 .12em;background:var(--yellow);position:relative;top:-.06em}
+.pill img{width:100%;height:100%;object-fit:cover;object-position:30% 60%}
+.lead{font-size:19px;max-width:520px;margin:26px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px}
+.chips span{font:500 13px/1 var(--m);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;width:100%;margin-bottom:4px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font:500 15px/1 var(--t);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s}
+.chip:hover{border-color:var(--ink);background:var(--yellow-soft)}
+.machine{position:relative;aspect-ratio:782/560}
+.machine .dozer{position:absolute;inset:0;width:100%;height:auto;filter:drop-shadow(0 30px 30px rgba(0,0,0,.12))}
+.tag{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:500 13px/1.1 var(--t);color:var(--ink);white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.tag i{font:500 11px/1 var(--m);color:var(--muted);font-style:normal}
+.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 3px var(--yellow-soft)}
+.seal{position:absolute;right:-10px;top:-30px;width:132px;height:132px}
+.seal text{font:600 10.5px var(--m);letter-spacing:.2em;fill:var(--ink)}
+
+/* marquee of models */
+.marquee{overflow:hidden;padding:30px 0;border-block:1px solid var(--line);white-space:nowrap}
+.marquee span{display:inline-block;font:700 clamp(40px,7vw,96px)/1 var(--h);color:#dedbd2;letter-spacing:-.02em}
+.marquee b{color:var(--yellow);-webkit-text-stroke:0}
+
+/* benefits */
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
+.benefit{padding:36px 30px;border-left:1px solid var(--line)}
+.benefit:first-child{border-left:0}
+.benefit .num{font:700 48px/1 var(--h);color:var(--ink);letter-spacing:-.03em;display:flex;align-items:baseline;gap:6px}
+.benefit .num small{font:600 16px var(--t);letter-spacing:0;color:var(--muted)}
+.benefit .num.word{font-size:30px;height:48px;align-items:flex-end}
+.benefit h3{margin:22px 0 8px}
+.benefit p{font-size:16px;color:var(--muted)}
+.benefit .ico{width:44px;height:44px;border-radius:12px;background:var(--yellow-soft);display:grid;place-items:center;margin-bottom:22px}
+
+/* catalog */
+.catalog{background:var(--band)}
+.cat-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.tabs{display:flex;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px}
+.tab{border:0;background:transparent;border-radius:999px;padding:12px 20px;font:600 15px/1 var(--t);color:var(--body);cursor:pointer;transition:background .25s,color .25s}
+.tab[aria-selected=true]{background:var(--ink);color:#fff}
+.panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}
+.panel[hidden]{display:none}
+.panel-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px}
+.photo{border-radius:14px;overflow:hidden;background:#f2f4f7;margin-bottom:24px}
+.photo img{width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.panel-card:hover .photo img{transform:scale(1.04)}
+.models{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 22px}
+.models li{list-style:none;font:500 13px/1 var(--m);border:1px solid var(--line);border-radius:6px;padding:8px 10px;color:var(--ink)}
+.maker{font-size:15px;color:var(--muted)}
+.scheme{margin:8px 0 0}
+.scheme svg{width:100%;height:auto}
+.scheme .part{transition:fill .25s,stroke .25s}
+.scheme .on{fill:var(--yellow)!important;stroke:var(--ink)}
+.scheme-note{font-size:14px;color:var(--muted);margin-top:8px}
+.parts h3{margin-bottom:6px}
+.parts p{font-size:15px;color:var(--muted);margin-bottom:18px}
+.parts ol{list-style:none;columns:2;column-gap:28px;counter-reset:p}
+.parts li{break-inside:avoid;counter-increment:p;display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:15.5px;line-height:1.35;color:var(--ink);cursor:default;transition:color .2s}
+.parts li::before{content:counter(p,decimal-leading-zero);font:500 12px/1.6 var(--m);color:var(--muted);min-width:20px}
+.parts li[data-part]:hover,.parts li.hl{color:#000}
+.parts li[data-part]::after{content:"◉";margin-left:auto;font-size:11px;color:var(--yellow)}
+.panel-cta{display:flex;gap:12px;align-items:center;margin-top:26px;flex-wrap:wrap}
+.panel-cta small{font-size:14px;color:var(--muted)}
+
+/* not found: callback */
+.callback{padding:0;margin-top:24px}
+.callback-box{background:var(--yellow);border-radius:var(--r);padding:44px;display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;position:relative;overflow:hidden}
+.callback-box h2{font-size:clamp(26px,3vw,36px)}
+.callback-box p{color:#3b3000;margin-top:12px}
+.inline-form{display:flex;gap:10px;flex-wrap:wrap}
+.inline-form input{flex:1 1 180px}
+.inline-form .btn{flex:0 0 auto}
+.callback-box .fine{font-size:13px;color:#5c4a00;margin-top:10px;width:100%}
+.callback-box .fine a{color:inherit}
+
+/* fields */
+input,textarea{width:100%;height:52px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:0 16px;font:400 16px var(--t);color:var(--ink)}
+textarea{height:110px;padding:14px 16px;resize:vertical}
+input:focus,textarea:focus{outline:0;border-color:var(--ink);box-shadow:0 0 0 3px var(--yellow-soft)}
+label{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.field{margin-bottom:14px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);margin:4px 0 18px}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--ink)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;position:relative}
+.about-photo img{width:100%;height:120%;object-fit:cover}
+.about p{margin-top:18px}
+.dealers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+.dealer{border:1px solid var(--line);background:#fff;border-radius:14px;padding:18px 20px}
+.dealer small{display:block;font:500 11px/1 var(--m);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.dealer b{font:700 18px/1.2 var(--h);color:var(--ink)}
+.docs{display:flex;gap:18px;margin-top:20px;flex-wrap:wrap}
+.docs a{font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--yellow);padding-bottom:2px}
+.docs a::before{content:"PDF ";font:500 11px var(--m);color:var(--muted)}
+
+/* steps reel (inkside) */
+.steps{background:var(--graphite);color:#c9cbcf;padding:0}
+.steps h2{color:#fff}
+.steps .eyebrow{color:#9a9ea4}
+.reel-pin{height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:80px 0}
+.reel-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px}
+.reel-head p{max-width:340px;font-size:16px}
+.reel-track{display:flex;gap:20px;padding-left:max(24px,calc((100vw - var(--max))/2 + 24px));width:max-content}
+.reel-card{width:340px;min-height:300px;border-radius:var(--r);background:#24272b;border:1px solid #33373c;padding:30px;display:flex;flex-direction:column;position:relative}
+.reel-card .n{font:700 64px/1 var(--h);color:transparent;-webkit-text-stroke:1.2px #5b6067}
+.reel-card h3{color:#fff;margin-top:auto;font-size:21px;padding-top:24px}
+.reel-card p{font-size:15px;margin-top:8px;color:#9a9ea4}
+.stamp{position:absolute;right:22px;top:26px;border:2.5px solid var(--yellow);color:var(--yellow);border-radius:8px;padding:6px 10px;font:600 12px/1 var(--m);letter-spacing:.14em;transform:rotate(-8deg);opacity:.92}
+.reel-bar{height:2px;background:#33373c;margin:44px 24px 0;max-width:var(--max);border-radius:2px;overflow:hidden}
+.reel-wrap{max-width:var(--max);margin:0 auto}
+.reel-bar i{display:block;height:100%;background:var(--yellow);transform:scaleX(0);transform-origin:left}
+
+/* contacts */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:36px}
+.rows{margin-top:26px}
+.row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:16px}
+.row dt{font:500 12px/1.9 var(--m);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.row dd{color:var(--ink)}
+.row a{text-decoration:none;font-weight:600}
+.row a:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px}
+.map-link{margin-top:22px}
+.contact-card form h3{font:700 26px/1.15 var(--h);margin-bottom:6px}
+.contact-card form > p{color:var(--muted);font-size:16px;margin-bottom:24px}
+.contact-card .btn{width:100%;justify-content:center}
+
+footer{padding:36px 0 48px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer img{height:20px;width:auto}
+
+/* back to top */
+.to-top{position:fixed;right:20px;bottom:20px;z-index:40;width:52px;height:52px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;text-decoration:none;font:600 22px/1 var(--t);box-shadow:0 8px 24px rgba(0,0,0,.12);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.to-top.show{opacity:1;visibility:visible}
+
+/* modal */
+dialog{border:0;border-radius:24px;padding:36px;width:min(480px,calc(100% - 32px));margin:auto;background:#fff;color:var(--body)}
+dialog::backdrop{background:rgba(22,24,27,.5);backdrop-filter:blur(4px)}
+dialog h3{font:700 24px/1.15 var(--h);margin-bottom:6px;padding-right:40px}
+dialog > p{color:var(--muted);font-size:16px;margin-bottom:22px}
+dialog .close{position:absolute;right:18px;top:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:20px;line-height:1}
+dialog .btn{width:100%;justify-content:center}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav ul{display:none}
+}
+@media (max-width:1000px){
+  section{padding:72px 0}
+  .hero{padding-top:120px}
+  .hero-grid,.panel,.about-grid,.contact-grid,.callback-box{grid-template-columns:1fr}
+  .machine{order:-1;max-width:560px}
+  .benefits-grid{grid-template-columns:1fr 1fr}
+  .benefit:nth-child(3){border-left:0}
+  .benefit:nth-child(n+3){border-top:1px solid var(--line)}
+  .reel-pin{height:auto}
+  .reel-track{flex-direction:column;width:auto;padding:0 24px}
+  .reel-card{width:auto;min-height:220px}
+  .reel-bar{display:none}
+  .reel-head{flex-direction:column;align-items:start}
+  .tabs{width:100%;overflow-x:auto}
+  .tab{white-space:nowrap}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .nav{padding-left:18px;gap:10px}
+  .nav .tel small{display:none}
+  .nav .btn{display:none}
+  .seal{width:96px;height:96px;top:-10px;right:0}
+  .tag{font-size:12px;padding:6px 9px}
+  .tag i{display:none}
+  .benefits-grid{grid-template-columns:1fr}
+  .benefit{border-left:0!important;border-top:1px solid var(--line)}
+  .benefit:first-child{border-top:0}
+  .parts ol{columns:1}
+  .panel-card,.contact-card{padding:24px}
+  .callback-box{padding:28px}
+  .row{grid-template-columns:1fr;gap:4px}
+  .dealers{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wipe" aria-hidden="true"></div>
+
+<header class="nav" aria-label="Основная навигация">
+  <a class="logo" href="#top" aria-label="Мехпрогресс — на главную"><img src="img/top-logo.png" alt="Мехпрогресс" width="243" height="36"></a>
+  <ul>
+    <li><a href="#top">Главная</a></li>
+    <li><a href="#preim">Преимущества</a></li>
+    <li><a href="#catalog">Каталог</a></li>
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#footer">Контакты</a></li>
+  </ul>
+  <div class="tels"><a class="tel" href="tel:+375296319171">+375 29 631 91 71<small>ежедневно 08:00–20:00</small></a><a class="tel tel2" href="tel:+375296445720">+375 29 644 57 20</a></div>
+  <button class="btn btn-y" data-open="callback">Перезвоните мне</button>
+  <span class="bar" aria-hidden="true"></span>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="hero-title">
+        <span class="line split">Запчасти для</span>
+        <span class="line"><span class="split">бульдозеров</span><span class="pill" aria-hidden="true"><img src="img/about-img.png" alt=""></span></span>
+        <span class="line split">и <span class="accent">экскаваторов</span></span>
+      </h1>
+      <p class="lead">Широкий ассортимент запасных частей к бульдозерам Shantui SD-16, Т-130, Т-170, Б-10, ДСТ-Урал, экскаватору ЭО-3223 и другим.</p>
+      <div class="actions">
+        <button class="btn btn-y" data-open="callback" data-msg="Нужна консультация">Получить консультацию</button>
+        <button class="btn btn-ghost" data-open="callback">Заказать</button>
+      </div>
+      <div class="chips" role="group" aria-label="Выберите технику">
+        <span>Ваша техника</span>
+        <button class="chip" data-go="sd16">Shantui SD-16</button>
+        <button class="chip" data-go="chtz">Т-130</button>
+        <button class="chip" data-go="chtz">Т-170</button>
+        <button class="chip" data-go="chtz">Б-10, Б-11</button>
+        <button class="chip" data-go="chtz">ДСТ-Урал</button>
+        <button class="chip" data-go="eo">ЭО-3223</button>
+      </div>
+    </div>
+
+    <div class="machine">
+      <svg class="seal" viewBox="0 0 132 132" aria-hidden="true">
+        <defs><path id="c" d="M66 66m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs>
+        <circle cx="66" cy="66" r="64" fill="#fff" stroke="#dcd9d0"/>
+        <g class="ring"><text><textPath href="#c">ОФИЦИАЛЬНЫЙ ДИЛЕР · ЧЕТРА · ЧЕБО · </textPath></text></g>
+        <circle cx="66" cy="66" r="24" fill="#f6b500"/>
+        <text x="66" y="71" text-anchor="middle" style="font:700 14px Unbounded;letter-spacing:0">18</text>
+      </svg>
+      <img class="dozer" src="img/prod-1.png" alt="Бульдозер Shantui SD-16" width="782" height="528">
+      <div class="tag floater" data-depth="1.4" style="left:6%;top:62%">Каток опорный <i>SD-16</i></div>
+      <div class="tag floater" data-depth="0.8" style="left:40%;top:4%">Фильтры и масла</div>
+      <div class="tag floater" data-depth="1.1" style="right:4%;top:84%">Цепь гусеничная <i>Т-170</i></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" data-dir="1" aria-hidden="true"><span>SD-16 <b>·</b> Т-130 <b>·</b> Т-170 <b>·</b> Б-10 <b>·</b> ДСТ-УРАЛ <b>·</b> ЭО-3223 <b>·</b> SD-16 <b>·</b> Т-130 <b>·</b> Т-170 <b>·</b> Б-10 <b>·</b> ДСТ-УРАЛ <b>·</b> ЭО-3223 <b>·</b></span></div>
+
+<!-- BENEFITS -->
+<section id="preim">
+  <div class="wrap">
+    <p class="eyebrow">Почему с нами проще</p>
+    <h2 class="title fill" style="max-width:760px;margin-bottom:44px">Техника не простаивает, пока вы ищете деталь</h2>
+    <div class="benefits-grid" data-rise>
+      <div class="benefit">
+        <div class="num"><span class="count" data-to="18">18</span><small>мес.</small></div>
+        <h3>Гарантия до 18 месяцев</h3><p>На всю реализуемую продукцию.</p>
+      </div>
+      <div class="benefit">
+        <div class="num">1–2<small>дня</small></div>
+        <h3>Доставка 1–2 дня</h3><p>Быстрая доставка купленного вами товара.</p>
+      </div>
+      <div class="benefit">
+        <div class="num word">Под заказ</div>
+        <h3>В наличии и под заказ</h3><p>Если нужного товара нет в наличии — привезём под заказ.</p>
+      </div>
+      <div class="benefit">
+        <div class="num word">Рассрочка</div>
+        <h3>Удобные способы оплаты</h3><p>Безналичный расчёт, возможность купить в рассрочку.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog" class="catalog">
+  <div class="wrap">
+    <div class="cat-head">
+      <div>
+        <p class="eyebrow">Каталог товаров</p>
+        <h2 class="title split">Выберите технику</h2>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Техника">
+        <button class="tab" role="tab" id="t-sd16" aria-controls="sd16" aria-selected="true">Shantui SD-16</button>
+        <button class="tab" role="tab" id="t-chtz" aria-controls="chtz" aria-selected="false">Т-130 · Т-170 · Б-10 · ДСТ-Урал</button>
+        <button class="tab" role="tab" id="t-eo" aria-controls="eo" aria-selected="false">ЭО-3223</button>
+      </div>
+    </div>
+
+    <!-- each panel: machine + schematic left, parts list right; parts with data-part light up on the schematic -->
+    <div class="panel" id="sd16" role="tabpanel" aria-labelledby="t-sd16">
+      <div class="panel-card">
+        <div class="photo"><img src="img/bg-prod-1.png" alt="Бульдозер Shantui SD-16" width="427" height="256" loading="lazy"></div>
+        <h3>Бульдозер Shantui SD-16</h3>
+        <ul class="models"><li>Шантуй СД-16 (Шантуи)</li><li>SD-16 (СД-16)</li><li>Белдозер</li></ul>
+        <div class="scheme" data-scheme></div>
+        <p class="scheme-note">Наведите на деталь в списке — покажем, где она стоит.</p>
+      </div>
+      <div class="panel-card parts">
+        <h3>К заказу доступны запчасти</h3>
+        <p>Нет нужной позиции — менеджер подберёт и привезёт.</p>
+        <ol>
+          <li data-part="chain">Цепь гусеничная</li>
+          <li data-part="chain">Лента гусеничная (гусеницы)</li>
+          <li data-part="chain">Гусеница</li>
+          <li data-part="sprocket">Колесо ведущее</li>
+          <li data-part="sprocket">Звёздочка</li>
+          <li data-part="sprocket">Венец ведущего колеса</li>
+          <li data-part="idler">Колесо направляющее</li>
+          <li data-part="idler">Ленивец</li>
+          <li data-part="sprocket">Сегменты ведущего колеса</li>
+          <li data-part="sprocket">Сегменты звёздочки</li>
+          <li data-part="roller">Каток опорный</li>
+          <li data-part="roller">Каток однобортный</li>
+          <li data-part="roller">Каток двубортный</li>
+          <li data-part="carrier">Каток поддерживающий</li>
+          <li data-part="drive">Запчасти бортового редуктора</li>
+          <li data-part="drive">Подшипники в бортовой редуктор</li>
+          <li data-part="chain">Болты-гайки башмачные (башмака)</li>
+          <li data-part="chain">Болты-гайки траковые (трака)</li>
+          <li data-part="sprocket">Болты крепления звёздочки, ведущего колеса, сегментов</li>
+          <li>Фильтры, масла, технические жидкости</li>
+        </ol>
+        <div class="panel-cta">
+          <button class="btn btn-dark" data-open="callback" data-msg="Запчасти для Shantui SD-16: ">Заказать для SD-16</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="chtz" role="tabpanel" aria-labelledby="t-chtz" hidden>
+      <div class="panel-card">
+        <div class="photo"><img src="img/bg-prod-2.png" alt="Бульдозер ЧЕТРА" width="424" height="256" loading="lazy"></div>
+        <h3>Бульдозеры Т-130, Т-170, Б-10, Б-11, ДСТ-Урал</h3>
+        <ul class="models"><li>Т-130</li><li>Т-170</li><li>Б-10</li><li>Б-11</li><li>ДСТ-Урал</li></ul>
+        <div class="scheme" data-scheme></div>
+        <p class="scheme-note">Наведите на деталь в списке — покажем, где она стоит.</p>
+      </div>
+      <div class="panel-card parts">
+        <h3>К заказу доступны запчасти</h3>
+        <p>Нет нужной позиции — менеджер подберёт и привезёт.</p>
+        <ol>
+          <li data-part="chain">Цепь гусеничная</li>
+          <li data-part="chain">Лента гусеничная (гусеницы)</li>
+          <li data-part="chain">Гусеница</li>
+          <li data-part="sprocket">Колесо ведущее</li>
+          <li data-part="sprocket">Звёздочка</li>
+          <li data-part="sprocket">Венец ведущего колеса</li>
+          <li data-part="idler">Колесо направляющее</li>
+          <li data-part="idler">Ленивец</li>
+          <li data-part="sprocket">Сегменты ведущего колеса</li>
+          <li data-part="sprocket">Сегменты звёздочки</li>
+          <li data-part="roller">Каток опорный</li>
+          <li data-part="roller">Каток однобортный</li>
+          <li data-part="roller">Каток двубортный</li>
+          <li data-part="carrier">Каток поддерживающий</li>
+          <li data-part="drive">Запчасти бортового редуктора</li>
+          <li data-part="drive">Шестерня двойная, ведущая</li>
+          <li data-part="drive">Подшипники в бортовой редуктор</li>
+          <li data-part="chain">Болты-гайки башмачные (башмака)</li>
+          <li data-part="chain">Болты-гайки траковые (трака)</li>
+          <li data-part="sprocket">Болты крепления звёздочки, ведущего колеса, сегментов</li>
+          <li>Фильтры, масла, технические жидкости</li>
+        </ol>
+        <div class="panel-cta">
+          <button class="btn btn-dark" data-open="callback" data-msg="Запчасти для бульдозера ЧЕТРА (Т-130/Т-170/Б-10/ДСТ-Урал): ">Заказать для ЧЕТРА</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="eo" role="tabpanel" aria-labelledby="t-eo" hidden>
+      <div class="panel-card">
+        <div class="photo"><img src="img/bg-prod-3.png" alt="Экскаватор ЭО-3223" width="425" height="256" loading="lazy"></div>
+        <h3>Экскаватор ЭО-3223</h3>
+        <p class="maker">ОАО «Кохановский экскаваторный завод»</p>
+        <ul class="models"><li>ЭО-3223</li></ul>
+        <div class="scheme" data-scheme></div>
+        <p class="scheme-note">Наведите на деталь в списке — покажем, где она стоит.</p>
+      </div>
+      <div class="panel-card parts">
+        <h3>К заказу доступны запчасти</h3>
+        <p>Нет нужной позиции — менеджер подберёт и привезёт.</p>
+        <ol>
+          <li data-part="chain">Цепь гусеничная</li>
+          <li data-part="chain">Лента гусеничная (гусеницы)</li>
+          <li data-part="chain">Гусеница</li>
+          <li data-part="sprocket">Колесо ведущее</li>
+          <li data-part="sprocket">Звёздочка</li>
+          <li data-part="sprocket">Венец ведущего колеса</li>
+          <li data-part="idler">Колесо направляющее</li>
+          <li data-part="idler">Ленивец</li>
+          <li data-part="sprocket">Сегменты ведущего колеса</li>
+          <li data-part="sprocket">Сегменты звёздочки</li>
+          <li data-part="roller">Каток опорный</li>
+          <li data-part="carrier">Каток поддерживающий</li>
+          <li data-part="drive">Запчасти бортового редуктора</li>
+          <li data-part="drive">Подшипники в бортовой редуктор</li>
+          <li data-part="chain">Болты-гайки башмачные (башмака)</li>
+          <li data-part="chain">Болты-гайки траковые (трака)</li>
+          <li data-part="sprocket">Болты крепления звёздочки, ведущего колеса, сегментов</li>
+          <li>Фильтры, масла, технические жидкости</li>
+        </ol>
+        <div class="panel-cta">
+          <button class="btn btn-dark" data-open="callback" data-msg="Запчасти для экскаватора ЭО-3223: ">Заказать для ЭО-3223</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Не нашли нужной детали? -->
+    <div class="callback">
+      <div class="callback-box" data-rise>
+        <div>
+          <h2>Не нашли нужную деталь?</h2>
+          <p>Оставьте контакты — менеджер свяжется с вами для подбора и поставки нужной детали.</p>
+        </div>
+        <div class="inline-form">
+          <input id="cb-name" autocomplete="name" placeholder="Иван Иванов" aria-label="Имя">
+          <input id="cb-phone" type="tel" autocomplete="tel" placeholder="Ваш телефон с кодом" aria-label="Телефон">
+          <button class="btn btn-dark" type="button" data-open="callback" data-msg="Не нашли нужной детали — подбор и поставка">Перезвоните мне</button>
+          <p class="fine">Нажимая на кнопку, вы соглашаетесь с <a href="file/politika-konfidencialnosti.pdf" target="_blank">политикой конфиденциальности</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="about-photo" data-rise><img class="para" src="img/about-img.png" alt="Бульдозер Shantui на объекте" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">О компании</p>
+      <h2 class="title split">Поможем выбрать то, что действительно нужно</h2>
+      <p>ООО «Мехпрогресс» продаёт качественные запасные части к бульдозерам и экскаваторам.</p>
+      <p>Мы стараемся обслуживать клиентов максимально качественно, чтобы сократить их расходы и потери времени. Каждый сотрудник подскажет наличие на складе и цену конкретной запчасти, поможет разобраться в технических терминах и выбрать то, что действительно нужно.</p>
+      <p>Мы постоянно расширяем номенклатуру запасных частей.</p>
+      <div class="dealers">
+        <div class="dealer"><small>Официальный дилер</small><b>ООО «Компания „ЧЕБО“»</b></div>
+        <div class="dealer"><small>Официальный дилер</small><b>ООО «Четра»</b></div>
+      </div>
+      <div class="docs">
+        <a href="file/sert-diler.pdf" target="_blank">Сертификат дилера</a>
+        <a href="file/svidetelstvo.pdf" target="_blank">Свидетельство о регистрации</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps reel" aria-labelledby="steps-h">
+  <div class="reel-pin">
+    <div class="wrap reel-head">
+      <div>
+        <p class="eyebrow">Как мы работаем</p>
+        <h2 id="steps-h">Шесть шагов от звонка до гарантии</h2>
+      </div>
+      <p>Работаем по договору — от подбора детали до гарантии.</p>
+    </div>
+    <div class="reel-track">
+      <article class="reel-card"><span class="stamp">ПОДОБРАНО</span><span class="n">01</span><h3>Консультация и подбор запасных частей</h3></article>
+      <article class="reel-card"><span class="stamp">ПОДПИСАНО</span><span class="n">02</span><h3>Подписание договора</h3></article>
+      <article class="reel-card"><span class="stamp">ПРИНЯТО</span><span class="n">03</span><h3>Внесение предоплаты по договору</h3></article>
+      <article class="reel-card"><span class="stamp">ОТГРУЖЕНО</span><span class="n">04</span><h3>Поставка необходимых запасных частей</h3></article>
+      <article class="reel-card"><span class="stamp">ОПЛАЧЕНО</span><span class="n">05</span><h3>Окончательный расчёт</h3></article>
+      <article class="reel-card"><span class="stamp">18 МЕС.</span><span class="n">06</span><h3>Гарантийный период до 18 месяцев</h3></article>
+    </div>
+    <div class="reel-wrap"><div class="reel-bar"><i></i></div></div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="footer">
+  <div class="wrap">
+    <p class="eyebrow">Контакты</p>
+    <h2 class="title fill" style="margin-bottom:40px">Остались вопросы?</h2>
+    <div class="contact-grid">
+      <div class="contact-card" data-rise>
+        <h3>ООО «Мехпрогресс»</h3>
+        <dl class="rows">
+          <div class="row"><dt>Телефоны</dt><dd><a href="tel:+375296319171">+375 29 631 91 71</a> <span style="color:var(--muted)">моб.</span><br><a href="tel:+375296445720">+375 29 644 57 20</a> <span style="color:var(--muted)">моб.</span><br><a href="tel:+375172152426">+375 17 215 24 26</a> <span style="color:var(--muted)">гор.</span></dd></div>
+          <div class="row"><dt>Режим</dt><dd>Ежедневно 08:00–20:00</dd></div>
+          <div class="row"><dt>E-mail</dt><dd><a href="mailto:mehprogress@yandex.by">mehprogress@yandex.by</a></dd></div>
+          <div class="row"><dt>Адрес</dt><dd>220075, г. Минск, ул. Селицкого, 21Е, ком. 10</dd></div>
+          <div class="row"><dt>Почта</dt><dd>220075, г. Минск, а/я 109</dd></div>
+        </dl>
+        <a class="btn btn-ghost map-link" href="https://yandex.by/maps/157/minsk/house/Zk4YcA9mSEQEQFtpfXRwd35kZQ" target="_blank" rel="noopener">Открыть карту <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="contact-card" data-rise>
+        <form action="send.mail.php" method="post">
+          <h3>Оставьте заявку</h3>
+          <p>Наш менеджер ответит вам в ближайшее время.</p>
+          <div class="field"><label for="c-name">Имя</label><input id="c-name" name="nameFF" required autocomplete="name" placeholder="Иван Иванов"></div>
+          <div class="field"><label for="c-phone">Телефон</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+375 __ ___ __ __"></div>
+          <div class="field"><label for="c-mail">E-mail</label><input id="c-mail" name="contactFF" type="email" required autocomplete="email" placeholder="you@company.by"></div>
+          <div class="field"><label for="c-msg">Вопрос</label><textarea id="c-msg" name="messageFF" required placeholder="Модель техники, деталь, количество"></textarea></div>
+          <button class="btn btn-y" type="submit">Отправить контакт</button>
+          <p class="check" style="margin-top:12px">Нажимая кнопку, вы соглашаетесь с&nbsp;<a href="file/politika-konfidencialnosti.pdf" target="_blank">политикой конфиденциальности</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/top-logo.png" alt="Мехпрогресс" width="243" height="36">
+    <span>© 2022–2026 ООО «Мехпрогресс» · УНП 193587442</span>
+    <a href="file/politika-konfidencialnosti.pdf" target="_blank">Политика конфиденциальности</a>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Наверх">↑</a>
+
+<!-- «Перезвоните мне» / «Заказать»: same fields as the original modal form -->
+<dialog id="callback" aria-labelledby="dlg-h">
+  <button class="close" type="button" aria-label="Закрыть" data-close>×</button>
+  <form action="send.mail.php" method="post">
+    <h3 id="dlg-h">Заполните форму</h3>
+    <p>и мы свяжемся с вами для обсуждения вашего вопроса.</p>
+    <div class="field"><label for="d-name">Имя *</label><input id="d-name" name="name" required autocomplete="name" placeholder="Иван Иванов"></div>
+    <div class="field"><label for="d-phone">Телефон *</label><input id="d-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Ваш телефон с кодом"></div>
+    <div class="field"><label for="d-mail">E-mail *</label><input id="d-mail" name="umail" type="email" required autocomplete="email" placeholder="you@company.by"></div>
+    <div class="field"><label for="d-msg">Тема вопроса</label><textarea id="d-msg" name="mess" required placeholder="Детали заявки…"></textarea></div>
+    <label class="check"><input type="checkbox" required checked> Согласен с&nbsp;<a href="file/politika-konfidencialnosti.pdf" target="_blank">политикой конфиденциальности</a></label>
+    <button class="btn btn-y" type="submit">Отправить контакт</button>
+  </form>
+</dialog>
+
+<!-- Undercarriage schematic, cloned into each catalog panel -->
+<template id="scheme-tpl">
+  <svg viewBox="0 0 520 170" role="img" aria-label="Схема ходовой части">
+    <g fill="none" stroke="#16181b" stroke-width="1.5">
+      <rect class="part" data-p="chain" x="20" y="30" width="480" height="118" rx="59" fill="#ebe9e3" stroke-width="10" stroke-dasharray="10 4" stroke="#b9b5aa"/>
+      <rect x="40" y="48" width="440" height="82" rx="41" fill="#f4f3ef"/>
+      <circle class="part" data-p="idler" cx="80" cy="89" r="44" fill="#fff"/>
+      <circle cx="80" cy="89" r="10" fill="#16181b"/>
+      <g class="part" data-p="sprocket" fill="#fff">
+        <circle cx="440" cy="89" r="46" stroke-dasharray="6 3" stroke-width="5"/>
+        <circle cx="440" cy="89" r="38"/>
+      </g>
+      <rect class="part" data-p="drive" x="420" y="69" width="40" height="40" rx="8" fill="#ebe9e3"/>
+      <g class="part" data-p="roller" fill="#fff">
+        <circle cx="160" cy="118" r="17"/><circle cx="210" cy="118" r="17"/><circle cx="260" cy="118" r="17"/><circle cx="310" cy="118" r="17"/><circle cx="360" cy="118" r="17"/>
+      </g>
+      <g class="part" data-p="carrier" fill="#fff"><circle cx="200" cy="48" r="12"/><circle cx="320" cy="48" r="12"/></g>
+    </g>
+    <g font-family="JetBrains Mono" font-size="10" fill="#676b71">
+      <text x="56" y="20">ленивец</text><text x="402" y="20">звёздочка</text><text x="222" y="22">поддерживающие</text><text x="214" y="166">опорные катки</text>
+    </g>
+  </svg>
+</template>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+if (!location.hash) history.scrollRestoration = "manual";
+// UI that must work without motion: tabs, schematic hover, modal.
+const tabs = [...document.querySelectorAll('.tab')];
+function openTab(id) {
+  tabs.forEach(t => {
+    const on = t.getAttribute('aria-controls') === id;
+    t.setAttribute('aria-selected', on);
+    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+  });
+  window.ScrollTrigger && ScrollTrigger.refresh();
+}
+tabs.forEach(t => t.addEventListener('click', () => openTab(t.getAttribute('aria-controls'))));
+document.querySelectorAll('[data-go]').forEach(c => c.addEventListener('click', () => {
+  openTab(c.dataset.go);
+  const el = document.getElementById('catalog');
+  window.lenis ? lenis.scrollTo(el, { offset: -80 }) : el.scrollIntoView();
+}));
+
+const tpl = document.getElementById('scheme-tpl');
+document.querySelectorAll('[data-scheme]').forEach(box => box.append(tpl.content.cloneNode(true)));
+document.querySelectorAll('.panel').forEach(panel => {
+  panel.querySelectorAll('li[data-part]').forEach(li => {
+    const toggle = on => panel.querySelectorAll(`.part[data-p="${li.dataset.part}"]`).forEach(p => p.classList.toggle('on', on));
+    li.addEventListener('mouseenter', () => toggle(true));
+    li.addEventListener('mouseleave', () => toggle(false));
+  });
+});
+
+const dlg = document.getElementById('callback');
+document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => {
+  dlg.querySelector('#d-msg').value = b.dataset.msg || '';
+  if (b.closest('.inline-form')) {
+    dlg.querySelector('#d-name').value = document.getElementById('cb-name').value;
+    dlg.querySelector('#d-phone').value = document.getElementById('cb-phone').value;
+  }
+  dlg.showModal();
+}));
+dlg.querySelector('[data-close]').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+// send.mail.php exists only on mechprogress.by; on the demo host just confirm the form is valid.
+if (!location.hostname.endsWith('mechprogress.by')) document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  f.hidden = true;
+  f.insertAdjacentHTML('afterend', '<div class="thanks"><h3>Спасибо!</h3><p>Это демо. На mechprogress.by заявка уйдёт на почту mehprogress@yandex.by.</p></div>');
+}));
+dlg.addEventListener('close', () => {
+  const f = dlg.querySelector('form');
+  if (f.hidden) { f.reset(); f.hidden = false; dlg.querySelector('.thanks').remove(); }
+});
+
+// Motion: same grammar as ДариСмысл (wipe, char reveal, floaters, pinned reel with stamps).
+gsap.registerPlugin(ScrollTrigger, SplitText);
+const nav = document.querySelector('.nav');
+ScrollTrigger.create({ start: 0, end: 'max', onUpdate: s => {
+  nav.classList.toggle('hide', s.direction === 1 && s.scroll() > 400);
+  nav.classList.toggle('scrolled', s.scroll() > 8);
+  document.documentElement.style.setProperty('--p', s.progress.toFixed(4));
+  document.querySelector('.to-top').classList.toggle('show', s.scroll() > 400);
+}});
+
+const mm = gsap.matchMedia();
+mm.add('(prefers-reduced-motion: no-preference)', () => {
+  window.lenis = new Lenis({ lerp: 0.1, anchors: { offset: -80 } });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  const intro = gsap.timeline({ delay: 0.1 });
+  intro.fromTo('.wipe', { clipPath: 'circle(150% at 50% 50%)' }, { clipPath: 'circle(0% at 50% 50%)', duration: 1, ease: 'power4.inOut' })
+       .set('.wipe', { display: 'none' });
+  SplitText.create('.hero-title .split', { type: 'words,chars', mask: 'chars', onSplit: s => {
+    intro.from(s.chars, { yPercent: 110, rotate: 8, duration: 0.9, stagger: 0.02, ease: 'expo.out' }, 0.55);
+  }});
+  intro.from('.pill', { scale: 0, rotate: -25, duration: 0.8, ease: 'back.out(2)' }, 1)
+       .from('.lead, .actions, .chips', { y: 24, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' }, 1.05)
+       .from('.dozer', { x: 160, opacity: 0, duration: 1.3, ease: 'expo.out' }, 0.7)
+       .from('.floater', { scale: 0, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(2)' }, 1.5)
+       .from('.seal', { scale: 2.4, rotate: -180, opacity: 0, duration: 0.8, ease: 'back.out(1.8)' }, 1.8);
+
+  // Part tags drift against the cursor, each at its own depth.
+  const fl = gsap.utils.toArray('.floater').map(el => ({ d: +el.dataset.depth,
+    x: gsap.quickTo(el, 'x', { duration: 1, ease: 'power3.out' }), y: gsap.quickTo(el, 'y', { duration: 1, ease: 'power3.out' }) }));
+  addEventListener('pointermove', e => {
+    const dx = e.clientX / innerWidth - .5, dy = e.clientY / innerHeight - .5;
+    fl.forEach(f => { f.x(dx * -50 * f.d); f.y(dy * -30 * f.d); });
+  }, { passive: true });
+  gsap.to('.dozer', { yPercent: -8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  // The dealer seal spins and speeds up with scroll velocity.
+  const spin = gsap.to('.seal .ring', { rotation: 360, svgOrigin: '66 66', duration: 20, ease: 'none', repeat: -1, delay: 2.6 });
+  ScrollTrigger.create({ onUpdate: s => { spin.timeScale(1 + Math.min(Math.abs(s.getVelocity()) / 300, 6)); gsap.to(spin, { timeScale: 1, duration: .8, overwrite: true }); }});
+
+  gsap.fromTo('.marquee span', { xPercent: 0 }, { xPercent: -30, ease: 'none', scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  document.querySelectorAll('.title.split').forEach(h => SplitText.create(h, { type: 'words,chars', mask: 'words', onSplit: s =>
+    gsap.from(s.chars, { yPercent: 115, rotate: 6, duration: 1, stagger: .016, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 85%' } }) }));
+  document.querySelectorAll('.title.fill').forEach(h => SplitText.create(h, { type: 'words,chars', onSplit: s =>
+    gsap.fromTo(s.chars, { opacity: .15 }, { opacity: 1, stagger: .05, ease: 'none', scrollTrigger: { trigger: h, start: 'top 85%', end: 'top 45%', scrub: true } }) }));
+
+  gsap.utils.toArray('[data-rise]').forEach(el => gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+  gsap.from('.count', { textContent: 0, duration: 1.6, ease: 'power2.out', snap: { textContent: 1 }, scrollTrigger: { trigger: '.benefits-grid', start: 'top 80%' } });
+  gsap.to('.para', { yPercent: -15, ease: 'none', scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  const reel = gsap.matchMedia();
+  reel.add('(min-width: 1001px)', () => {
+    const track = document.querySelector('.reel-track');
+    const dist = () => track.scrollWidth - innerWidth + 48;
+    const travel = gsap.to(track, { x: () => -dist(), ease: 'none',
+      scrollTrigger: { trigger: '.reel', start: 'top top', end: () => '+=' + dist(), pin: '.reel-pin', scrub: 1, invalidateOnRefresh: true } });
+    gsap.to('.reel-bar i', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.reel', start: 'top top', end: () => '+=' + dist(), scrub: true } });
+    gsap.utils.toArray('.reel-card').forEach(card => {
+      const onScreen = card.offsetLeft + card.offsetWidth / 2 < innerWidth * .8;
+      gsap.from(card.querySelector('.stamp'), { scale: 2.4, rotate: -40, opacity: 0, duration: .5, ease: 'back.out(2)', delay: onScreen ? .3 + card.offsetLeft / 2000 : 0,
+        scrollTrigger: onScreen ? { trigger: '.reel', start: 'top 40%' } : { trigger: card, containerAnimation: travel, start: 'left 75%' } });
+    });
+  });
+  reel.add('(max-width: 1000px)', () => {
+    gsap.utils.toArray('.reel-card').forEach(card => gsap.from(card.querySelector('.stamp'),
+      { scale: 2.4, rotate: -40, opacity: 0, duration: .5, ease: 'back.out(2)', scrollTrigger: { trigger: card, start: 'top 80%' } }));
+  });
+});
+mm.add('(prefers-reduced-motion: reduce)', () => { document.querySelector('.wipe').style.display = 'none'; });
+document.fonts?.ready.then(() => ScrollTrigger.refresh());
+</script>
+</body>
+</html>
