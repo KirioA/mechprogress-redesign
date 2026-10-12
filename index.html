@@ -13,23 +13,28 @@
 <meta property="og:url" content="https://mechprogress.by">
 <meta property="og:image" content="https://mechprogress.by/img/prod-1.png">
 <script>
-// Yandex.Metrika 90633169, as on the old site. Only on the real domain, so demo visits don't skew stats.
-if (location.hostname.endsWith('mechprogress.by')) {
+// Yandex.Metrika 90633169, as on the old site. Only on the real domain and only after cookie consent (99-З).
+function loadMetrika() {
+  if (!location.hostname.endsWith('mechprogress.by') || window.ym) return;
   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();
   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
   ym(90633169, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
 }
+const goal = name => window.ym && ym(90633169, 'reachGoal', name);
+if (localStorage.getItem('mp-cookies') === 'yes') loadMetrika();
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/geist-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:'Geist';font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/geist-cyrillic-wght-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Geist';font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/geist-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;font-weight:100 800;src:url(fonts/jetbrains-mono-cyrillic-wght-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;font-weight:100 800;src:url(fonts/jetbrains-mono-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --bg:#f4f3ef; --band:#ebe9e3; --card:#fff; --line:#dcd9d0;
   --ink:#16181b; --body:#3a3e44; --muted:#5f636a;
   --yellow:#f6b500; --yellow-soft:#fff3cc; --graphite:#1b1d20;
   --r:20px; --max:1200px;
-  --h:'Unbounded',system-ui,sans-serif; --t:'Onest',system-ui,sans-serif; --m:'JetBrains Mono',ui-monospace,monospace;
+  --h:'Geist',system-ui,sans-serif; --t:'Geist',system-ui,sans-serif; --m:'JetBrains Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -39,8 +44,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background-image:radial-gradient(circle,#c9c5bb 1px,transparent 1.2px);background-size:28px 28px;opacity:.45}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{color:var(--ink);font-family:var(--h);font-weight:700;line-height:1.08;letter-spacing:-.02em}
-h2{font-size:clamp(28px,4vw,44px)}
+h1,h2,h3{color:var(--ink);font-family:var(--h);font-weight:500;line-height:1.02;letter-spacing:-.045em}
+h2{font-size:clamp(30px,4.4vw,52px)}
 h3{font:600 20px/1.3 var(--t);letter-spacing:0}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 section{padding:112px 0}
@@ -83,7 +88,7 @@ section{padding:112px 0}
 /* hero */
 .hero{padding:150px 0 40px;position:relative}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
-.hero h1{font-size:clamp(34px,4.3vw,60px)}
+.hero h1{font-size:clamp(40px,5.4vw,78px);letter-spacing:-.055em}
 .hero h1 .line{white-space:nowrap}
 .hero h1 .line{display:block}
 .hero h1 .accent{position:relative;white-space:nowrap}
@@ -92,6 +97,8 @@ section{padding:112px 0}
 .pill img{width:100%;height:100%;object-fit:cover;object-position:30% 60%}
 .lead{font-size:19px;max-width:520px;margin:26px 0 30px}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font:500 13px/1.4 var(--m);color:var(--muted)}
+.facts span::before{content:"✓ ";color:var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px}
 .chips span{font:500 13px/1 var(--m);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;width:100%;margin-bottom:4px}
 .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font:500 15px/1 var(--t);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s}
@@ -106,14 +113,14 @@ section{padding:112px 0}
 
 /* marquee of models */
 .marquee{overflow:hidden;padding:30px 0;border-block:1px solid var(--line);white-space:nowrap}
-.marquee span{display:inline-block;font:700 clamp(40px,7vw,96px)/1 var(--h);color:#dedbd2;letter-spacing:-.02em}
+.marquee span{display:inline-block;font:600 clamp(44px,8vw,112px)/1 var(--h);color:#dedbd2;letter-spacing:-.02em}
 .marquee b{color:var(--yellow);-webkit-text-stroke:0}
 
 /* benefits */
 .benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
 .benefit{padding:36px 30px;border-left:1px solid var(--line)}
 .benefit:first-child{border-left:0}
-.benefit .num{font:700 48px/1 var(--h);color:var(--ink);letter-spacing:-.03em;display:flex;align-items:baseline;gap:6px}
+.benefit .num{font:500 52px/1 var(--h);color:var(--ink);letter-spacing:-.05em;display:flex;align-items:baseline;gap:6px}
 .benefit .num small{font:600 16px var(--t);letter-spacing:0;color:var(--muted)}
 .benefit .num.word{font-size:30px;height:48px;align-items:flex-end}
 .benefit h3{margin:22px 0 8px}
@@ -173,7 +180,7 @@ section{padding:112px 0}
 /* not found: callback */
 .callback{padding:0;margin-top:24px}
 .callback-box{background:var(--yellow);border-radius:var(--r);padding:44px;display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;position:relative;overflow:hidden}
-.callback-box h2{font-size:clamp(26px,3vw,36px)}
+.callback-box h2{font-size:clamp(28px,3.4vw,42px)}
 .callback-box p{color:#3b3000;margin-top:12px}
 .inline-form{display:flex;gap:10px;flex-wrap:wrap}
 .inline-form input{flex:1 1 180px}
@@ -187,6 +194,10 @@ textarea{height:110px;padding:14px 16px;resize:vertical}
 input:focus,textarea:focus{outline:0;border-color:var(--ink);box-shadow:0 0 0 3px var(--yellow-soft)}
 label{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
 .field{margin-bottom:14px}
+.field .err{display:none;font-size:13px;color:#b42318;margin-top:6px}
+.field.bad input{border-color:#b42318}
+.field.bad .err{display:block}
+.after-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
 .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);margin:4px 0 18px}
 .check input{width:18px;height:18px;margin-top:2px;accent-color:var(--ink)}
 
@@ -198,7 +209,7 @@ label{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-botto
 .dealers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
 .dealer{border:1px solid var(--line);background:#fff;border-radius:14px;padding:18px 20px}
 .dealer small{display:block;font:500 11px/1 var(--m);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
-.dealer b{font:700 18px/1.2 var(--h);color:var(--ink)}
+.dealer b{font:600 18px/1.2 var(--h);color:var(--ink);letter-spacing:-.02em}
 .docs{display:flex;gap:18px;margin-top:20px;flex-wrap:wrap}
 .docs a{font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--yellow);padding-bottom:2px}
 .docs a::before{content:"PDF ";font:500 11px var(--m);color:var(--muted)}
@@ -212,13 +223,25 @@ label{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-botto
 .reel-head p{max-width:340px;font-size:16px}
 .reel-track{display:flex;gap:20px;padding-left:max(24px,calc((100vw - var(--max))/2 + 24px));width:max-content}
 .reel-card{width:340px;min-height:300px;border-radius:var(--r);background:#24272b;border:1px solid #33373c;padding:30px;display:flex;flex-direction:column;position:relative}
-.reel-card .n{font:700 64px/1 var(--h);color:transparent;-webkit-text-stroke:1.2px #5b6067}
+.reel-card .n{font:400 72px/1 var(--h);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.2px #5b6067}
 .reel-card h3{color:#fff;margin-top:auto;font-size:21px;padding-top:24px}
 .reel-card p{font-size:15px;margin-top:8px;color:#9a9ea4}
 .stamp{position:absolute;right:22px;top:26px;border:2.5px solid var(--yellow);color:var(--yellow);border-radius:8px;padding:6px 10px;font:600 12px/1 var(--m);letter-spacing:.14em;transform:rotate(-8deg);opacity:.92}
 .reel-bar{height:2px;background:#33373c;margin:44px 24px 0;max-width:var(--max);border-radius:2px;overflow:hidden}
 .reel-wrap{max-width:var(--max);margin:0 auto}
 .reel-bar i{display:block;height:100%;background:var(--yellow);transform:scaleX(0);transform-origin:left}
+
+/* faq */
+.faq{background:var(--band)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list details:first-child{border-top:1px solid var(--line)}
+.faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:500 19px/1.35 var(--t);color:var(--ink)}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";font:400 26px/1 var(--t);transition:rotate .25s}
+.faq-list details[open] summary::after{rotate:45deg}
+.faq-list p{padding:0 40px 22px 0;font-size:16px;color:var(--body)}
+.faq-list a{color:var(--ink);text-decoration-color:var(--yellow);text-decoration-thickness:2px}
 
 /* contacts */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -230,7 +253,7 @@ label{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-botto
 .row a{text-decoration:none;font-weight:600}
 .row a:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px}
 .map-link{margin-top:22px}
-.contact-card form h3{font:700 26px/1.15 var(--h);margin-bottom:6px}
+.contact-card form h3{font:500 28px/1.1 var(--h);letter-spacing:-.04em;margin-bottom:6px}
 .contact-card form > p{color:var(--muted);font-size:16px;margin-bottom:24px}
 .contact-card .btn{width:100%;justify-content:center}
 
@@ -242,10 +265,33 @@ footer img{height:20px;width:auto}
 .to-top{position:fixed;right:20px;bottom:20px;z-index:40;width:52px;height:52px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;text-decoration:none;font:600 22px/1 var(--t);box-shadow:0 8px 24px rgba(0,0,0,.12);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
 .to-top.show{opacity:1;visibility:visible}
 
+/* phone quick bar */
+.mbar{display:none}
+@media (max-width:640px){
+  .mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;display:grid;grid-template-columns:1fr 1.3fr;gap:8px;padding:8px;border-radius:999px;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);transform:translateY(160%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  .mbar.show{transform:none}
+  .mbar .btn{height:48px;justify-content:center;padding:0 12px;font-size:15px}
+  .to-top{bottom:calc(88px + env(safe-area-inset-bottom))}
+  footer{padding-bottom:110px}
+}
+
+/* cookie banner: refusing is as easy as accepting */
+.cookies{position:fixed;left:16px;bottom:16px;z-index:60;max-width:420px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 12px 32px rgba(0,0,0,.1)}
+.cookies[hidden]{display:none}
+.cookies p{font-size:14px;margin-bottom:12px}
+.cookies a{color:var(--ink)}
+.cookies div{display:flex;gap:8px}
+.cookies .btn{height:44px;padding:0 20px;font-size:15px;flex:1;justify-content:center}
+@media (max-width:640px){.cookies{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:none;padding:12px 14px;border-radius:16px}.cookies p{font-size:13px;margin-bottom:8px}.cookies .btn{height:40px}}
+
 /* modal */
 dialog{border:0;border-radius:24px;padding:36px;width:min(480px,calc(100% - 32px));margin:auto;background:#fff;color:var(--body)}
 dialog::backdrop{background:rgba(22,24,27,.5);backdrop-filter:blur(4px)}
-dialog h3{font:700 24px/1.15 var(--h);margin-bottom:6px;padding-right:40px}
+@media (prefers-reduced-motion:no-preference){
+  dialog[open]{transition:opacity .25s,scale .25s cubic-bezier(.2,.8,.2,1)}
+  @starting-style{dialog[open]{opacity:0;scale:.97}}
+}
+dialog h3{font:500 26px/1.1 var(--h);letter-spacing:-.04em;margin-bottom:6px;padding-right:40px}
 dialog > p{color:var(--muted);font-size:16px;margin-bottom:22px}
 dialog .close{position:absolute;right:18px;top:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:20px;line-height:1}
 dialog .btn{width:100%;justify-content:center}
@@ -257,8 +303,9 @@ dialog .btn{width:100%;justify-content:center}
 @media (max-width:1000px){
   section{padding:72px 0}
   .hero{padding-top:120px}
-  .hero-grid,.panel,.about-grid,.contact-grid,.callback-box{grid-template-columns:1fr}
-  .machine{order:-1;max-width:560px}
+  .hero-grid,.panel,.about-grid,.contact-grid,.callback-box,.faq-grid{grid-template-columns:1fr}
+  .faq-grid{gap:24px}
+  .machine{max-width:520px;margin:8px auto 0;width:100%}
   .benefits-grid{grid-template-columns:1fr 1fr}
   .benefit:nth-child(3){border-left:0}
   .benefit:nth-child(n+3){border-top:1px solid var(--line)}
@@ -275,6 +322,7 @@ dialog .btn{width:100%;justify-content:center}
   .nav{padding-left:18px;gap:10px}
   .nav .tel small{display:none}
   .nav .btn{display:none}
+  .actions .btn{flex:1 1 100%;justify-content:center}
   .seal{width:96px;height:96px;top:-10px;right:0}
   .tag{font-size:12px;padding:6px 9px}
   .tag i{display:none}
@@ -330,6 +378,7 @@ dialog .btn{width:100%;justify-content:center}
         <button class="btn btn-y" data-open="callback" data-msg="Нужна консультация">Получить консультацию</button>
         <button class="btn btn-ghost" data-open="callback">Заказать</button>
       </div>
+      <p class="facts"><span>Гарантия до 18 мес.</span><span>Доставка 1–2 дня</span><span>Ежедневно 08:00–20:00</span></p>
       <div class="chips" role="group" aria-label="Выберите технику">
         <span>Ваша техника</span>
         <button class="chip" data-go="sd16">Shantui SD-16</button>
@@ -347,9 +396,9 @@ dialog .btn{width:100%;justify-content:center}
         <circle cx="66" cy="66" r="64" fill="#fff" stroke="#dcd9d0"/>
         <g class="ring"><text><textPath href="#c">ОФИЦИАЛЬНЫЙ ДИЛЕР · ЧЕТРА · ЧЕБО · </textPath></text></g>
         <circle cx="66" cy="66" r="24" fill="#f6b500"/>
-        <text x="66" y="71" text-anchor="middle" style="font:700 14px Unbounded;letter-spacing:0">18</text>
+        <text x="66" y="71" text-anchor="middle" style="font:600 16px Geist;letter-spacing:-.02em">18</text>
       </svg>
-      <img class="dozer" src="img/prod-1.png" alt="Бульдозер Shantui SD-16" width="782" height="528">
+      <img class="dozer" src="img/prod-1.png" alt="Бульдозер Shantui SD-16" width="782" height="528" fetchpriority="high">
       <div class="tag floater" data-depth="1.4" style="left:6%;top:62%">Каток опорный <i>SD-16</i></div>
       <div class="tag floater" data-depth="0.8" style="left:40%;top:4%">Фильтры и масла</div>
       <div class="tag floater" data-depth="1.1" style="right:4%;top:84%">Цепь гусеничная <i>Т-170</i></div>
@@ -591,6 +640,23 @@ dialog .btn{width:100%;justify-content:center}
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <p class="eyebrow">Частые вопросы</p>
+      <h2 class="title split">Коротко о&nbsp;главном</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>Какая гарантия?</summary><p>До 18 месяцев на всю продукцию, которую мы продаём.</p></details>
+      <details><summary>Как быстро привезёте?</summary><p>Доставка — 1–2 дня. Если детали нет на складе, привезём под заказ.</p></details>
+      <details><summary>Как оплатить?</summary><p>Безналичный расчёт по договору: предоплата, затем окончательный расчёт после поставки. Возможна рассрочка.</p></details>
+      <details><summary>Не знаю, как называется деталь. Поможете?</summary><p>Да. Менеджер подскажет наличие и цену и поможет разобраться в технических терминах. Позвоните или оставьте заявку.</p></details>
+      <details><summary>Вы официальный дилер?</summary><p>Да, ООО «Компания „ЧЕБО“» и ООО «Четра». <a href="file/sert-diler.pdf" target="_blank">Сертификат дилера</a>.</p></details>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTS -->
 <section id="footer">
   <div class="wrap">
@@ -616,8 +682,9 @@ dialog .btn{width:100%;justify-content:center}
           <div class="field"><label for="c-phone">Телефон</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+375 __ ___ __ __"></div>
           <div class="field"><label for="c-mail">E-mail</label><input id="c-mail" name="contactFF" type="email" required autocomplete="email" placeholder="you@company.by"></div>
           <div class="field"><label for="c-msg">Вопрос</label><textarea id="c-msg" name="messageFF" required placeholder="Модель техники, деталь, количество"></textarea></div>
+          <label class="check"><input type="checkbox" required><span>Согласен на обработку персональных данных по <a href="file/politika-konfidencialnosti.pdf" target="_blank">политике конфиденциальности</a></span></label>
           <button class="btn btn-y" type="submit">Отправить контакт</button>
-          <p class="check" style="margin-top:12px">Нажимая кнопку, вы соглашаетесь с&nbsp;<a href="file/politika-konfidencialnosti.pdf" target="_blank">политикой конфиденциальности</a>.</p>
+          <p class="after-note">Перезвоним в рабочее время: ежедневно 08:00–20:00.</p>
         </form>
       </div>
     </div>
@@ -636,6 +703,16 @@ dialog .btn{width:100%;justify-content:center}
 
 <a class="to-top" href="#top" aria-label="Наверх">↑</a>
 
+<div class="mbar" aria-label="Быстрая связь">
+  <a class="btn btn-ghost" href="tel:+375296319171">Позвонить</a>
+  <button class="btn btn-y" data-open="callback">Перезвоните мне</button>
+</div>
+
+<div class="cookies" role="region" aria-label="Cookie" hidden>
+  <p>Используем cookie и Яндекс Метрику, чтобы улучшать сайт. <a href="file/politika-konfidencialnosti.pdf" target="_blank">Подробнее</a></p>
+  <div><button class="btn btn-dark" data-cookies="yes">Принять</button><button class="btn btn-ghost" data-cookies="no">Отказаться</button></div>
+</div>
+
 <!-- «Перезвоните мне» / «Заказать»: same fields as the original modal form -->
 <dialog id="callback" aria-labelledby="dlg-h">
   <button class="close" type="button" aria-label="Закрыть" data-close>×</button>
@@ -646,7 +723,7 @@ dialog .btn{width:100%;justify-content:center}
     <div class="field"><label for="d-phone">Телефон *</label><input id="d-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Ваш телефон с кодом"></div>
     <div class="field"><label for="d-mail">E-mail *</label><input id="d-mail" name="umail" type="email" required autocomplete="email" placeholder="you@company.by"></div>
     <div class="field"><label for="d-msg">Тема вопроса</label><textarea id="d-msg" name="mess" required placeholder="Детали заявки…"></textarea></div>
-    <label class="check"><input type="checkbox" required checked> Согласен с&nbsp;<a href="file/politika-konfidencialnosti.pdf" target="_blank">политикой конфиденциальности</a></label>
+    <label class="check"><input type="checkbox" required><span>Согласен на обработку персональных данных по <a href="file/politika-konfidencialnosti.pdf" target="_blank">политике конфиденциальности</a></span></label>
     <button class="btn btn-y" type="submit">Отправить контакт</button>
   </form>
 </dialog>
@@ -744,6 +821,7 @@ document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click'
     dlg.querySelector('#d-phone').value = document.getElementById('cb-phone').value;
   }
   dlg.showModal();
+  goal('callback_open');
 }));
 dlg.querySelector('[data-close]').addEventListener('click', () => dlg.close());
 dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
@@ -752,15 +830,46 @@ dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 if (!location.hostname.endsWith('mechprogress.by')) document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => {
   e.preventDefault();
   f.hidden = true;
-  f.insertAdjacentHTML('afterend', '<div class="thanks"><h3>Спасибо!</h3><p>Это демо. На mechprogress.by заявка уйдёт на почту mehprogress@yandex.by.</p></div>');
+  f.insertAdjacentHTML('afterend', '<div class="thanks"><h3>Спасибо!</h3><p>Перезвоним в рабочее время: ежедневно 08:00–20:00.</p><p class="after-note">Демо: на mechprogress.by заявка уйдёт на mehprogress@yandex.by.</p></div>');
 }));
 dlg.addEventListener('close', () => {
   const f = dlg.querySelector('form');
   if (f.hidden) { f.reset(); f.hidden = false; dlg.querySelector('.thanks').remove(); }
 });
 
-const toTop = document.querySelector('.to-top');
-addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 400), { passive: true });
+const toTop = document.querySelector('.to-top'), mbar = document.querySelector('.mbar'), cookies = document.querySelector('.cookies');
+addEventListener('scroll', () => {
+  toTop.classList.toggle('show', scrollY > 400);
+  mbar.classList.toggle('show', scrollY > innerHeight * 0.8 && cookies.hidden);
+}, { passive: true });
+
+if (!localStorage.getItem('mp-cookies')) cookies.hidden = false;
+cookies.querySelectorAll('[data-cookies]').forEach(b => b.addEventListener('click', () => {
+  localStorage.setItem('mp-cookies', b.dataset.cookies);
+  cookies.hidden = true;
+  if (b.dataset.cookies === 'yes') loadMetrika();
+}));
+
+// Soft phone mask: keeps paste and other formats, only tidies +375 / 80 numbers.
+document.querySelectorAll('input[type=tel]').forEach(i => {
+  i.setAttribute('inputmode', 'tel');
+  i.addEventListener('blur', () => {
+    let d = i.value.replace(/\D/g, '');
+    if (d.length === 11 && d.startsWith('80')) d = '375' + d.slice(2);
+    if (d.length === 12 && d.startsWith('375')) i.value = `+375 ${d.slice(3, 5)} ${d.slice(5, 8)}-${d.slice(8, 10)}-${d.slice(10)}`;
+  });
+});
+// Errors show after leaving a field, not while typing.
+document.querySelectorAll('.field input[type=tel], .field input[type=email]').forEach(i => {
+  const err = document.createElement('p'); err.className = 'err';
+  err.textContent = i.type === 'tel' ? 'Проверьте номер: например, +375 29 631-91-71' : 'Проверьте e-mail: например, name@company.by';
+  i.after(err);
+  const bad = () => i.value && (i.type === 'tel' ? i.value.replace(/\D/g, '').length < 9 : !i.checkValidity());
+  i.addEventListener('blur', () => i.parentNode.classList.toggle('bad', !!bad()));
+  i.addEventListener('input', () => i.parentNode.classList.contains('bad') && !bad() && i.parentNode.classList.remove('bad'));
+});
+document.querySelectorAll('a[href^="tel:"]').forEach(a => a.addEventListener('click', () => goal('tel')));
+document.querySelectorAll('form').forEach(f => f.addEventListener('submit', () => goal('form_submit')));
 
 // Motion: same grammar as ДариСмысл (wipe, char reveal, floaters, pinned reel with stamps).
 // Without the libraries the page stays static and fully usable.
@@ -788,7 +897,7 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
     intro.from(s.chars, { yPercent: 110, rotate: 8, duration: 0.9, stagger: 0.02, ease: 'expo.out' }, 0.55);
   }});
   intro.from('.pill', { scale: 0, rotate: -25, duration: 0.8, ease: 'back.out(2)' }, 1)
-       .from('.lead, .actions, .chips', { y: 24, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' }, 1.05)
+       .from('.lead, .actions, .facts, .chips', { y: 24, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' }, 1.05)
        .from('.dozer', { x: 160, opacity: 0, duration: 1.3, ease: 'expo.out' }, 0.7)
        .from('.floater', { scale: 0, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(2)' }, 1.5)
        .from('.seal', { scale: 2.4, rotate: -180, opacity: 0, duration: 0.8, ease: 'back.out(1.8)' }, 1.8);
