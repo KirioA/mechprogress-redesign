@@ -135,16 +135,36 @@ section{padding:112px 0}
 .models li{list-style:none;font:500 13px/1 var(--m);border:1px solid var(--line);border-radius:6px;padding:8px 10px;color:var(--ink)}
 .maker{font-size:15px;color:var(--muted)}
 .scheme{margin:8px 0 0}
-.scheme svg{width:100%;height:auto}
-.scheme .part{transition:fill .25s,stroke .25s}
-.scheme .on{fill:var(--yellow)!important;stroke:var(--ink)}
-.scheme-note{font-size:14px;color:var(--muted);margin-top:8px}
+.scheme svg{width:100%;height:auto;display:block}
+.scheme .part{fill:#fff;stroke:#16181b;stroke-width:7;transition:fill .25s,stroke .25s}
+.scheme .links{fill:none;stroke:#d3cec2;stroke-width:80;stroke-linejoin:round;transition:stroke .25s}
+.scheme .frame{fill:#ebe9e3;stroke:#b9b5aa;stroke-width:6}
+.scheme .spring{fill:none;stroke:#16181b;stroke-width:9;stroke-linejoin:round}
+.scheme .inner{fill:#f4f3ef}
+.scheme .hub,.scheme .sp-bolt{fill:#16181b}
+.scheme .disc{fill:#fff}
+.scheme .seg-odd{fill:#ebe9e3}
+.scheme .drive path,.scheme .drive > circle,.scheme .drive rect{fill:none;stroke-dasharray:24 14;stroke-width:8}
+.scheme .drive .inner{fill:none}
+.scheme .drive.on path,.scheme .drive.on > circle,.scheme .drive.on rect{fill:rgba(246,181,0,.45)}
+.scheme .lbl{font:500 78px var(--m);fill:#5f636a;stroke:none}
+.scheme .tag-t{font:700 92px var(--t);fill:#16181b;text-anchor:middle}
+.scheme .on,.scheme .on .part,.scheme .on circle,.scheme .on rect,.scheme .on polygon,.scheme .on path,.scheme .on .inner{fill:var(--yellow)}
+.scheme .on .hub{fill:#16181b}
+.scheme .links.on{stroke:var(--yellow);fill:none}
+.model-switch{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 18px}
+.model-switch button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:500 14px/1 var(--t);color:var(--ink);cursor:pointer}
+.model-switch button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.scheme-note{font-size:14px;color:var(--muted);margin-top:10px;min-height:42px}
+.scheme-note b{color:var(--ink);font-weight:600}
+.scheme-src{font-size:12px;color:var(--muted);margin-top:8px}
+.parts li[data-part]{cursor:pointer}
 .parts h3{margin-bottom:6px}
 .parts p{font-size:15px;color:var(--muted);margin-bottom:18px}
 .parts ol{list-style:none;columns:2;column-gap:28px;counter-reset:p}
 .parts li{break-inside:avoid;counter-increment:p;display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:15.5px;line-height:1.35;color:var(--ink);cursor:default;transition:color .2s}
 .parts li::before{content:counter(p,decimal-leading-zero);font:500 12px/1.6 var(--m);color:var(--muted);min-width:20px}
-.parts li[data-part]:hover,.parts li.hl{color:#000}
+.parts li[data-part]:hover,.parts li.hl{color:#000;background:var(--yellow-soft)}
 .parts li[data-part]::after{content:"◉";margin-left:auto;font-size:11px;color:var(--yellow)}
 .panel-cta{display:flex;gap:12px;align-items:center;margin-top:26px;flex-wrap:wrap}
 .panel-cta small{font-size:14px;color:var(--muted)}
@@ -265,6 +285,7 @@ dialog .btn{width:100%;justify-content:center}
   .callback-box{padding:28px}
   .row{grid-template-columns:1fr;gap:4px}
   .dealers{grid-template-columns:1fr}
+  .scheme .lbl{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -379,32 +400,33 @@ dialog .btn{width:100%;justify-content:center}
         <div class="photo"><img src="img/bg-prod-1.png" alt="Бульдозер Shantui SD-16" width="427" height="256" loading="lazy"></div>
         <h3>Бульдозер Shantui SD-16</h3>
         <ul class="models"><li>Шантуй СД-16 (Шантуи)</li><li>SD-16 (СД-16)</li><li>Белдозер</li></ul>
-        <div class="scheme" data-scheme></div>
-        <p class="scheme-note">Наведите на деталь в списке — покажем, где она стоит.</p>
+        <div class="scheme" data-model="sd16"></div>
+        <p class="scheme-note" aria-live="polite"></p>
+        <p class="scheme-src">Количество деталей — по заводской документации и каталогам. Пропорции схематичные.</p>
       </div>
       <div class="panel-card parts">
         <h3>К заказу доступны запчасти</h3>
         <p>Нет нужной позиции — менеджер подберёт и привезёт.</p>
         <ol>
-          <li data-part="chain">Цепь гусеничная</li>
-          <li data-part="chain">Лента гусеничная (гусеницы)</li>
-          <li data-part="chain">Гусеница</li>
-          <li data-part="sprocket">Колесо ведущее</li>
-          <li data-part="sprocket">Звёздочка</li>
-          <li data-part="sprocket">Венец ведущего колеса</li>
-          <li data-part="idler">Колесо направляющее</li>
-          <li data-part="idler">Ленивец</li>
-          <li data-part="sprocket">Сегменты ведущего колеса</li>
-          <li data-part="sprocket">Сегменты звёздочки</li>
-          <li data-part="roller">Каток опорный</li>
-          <li data-part="roller">Каток однобортный</li>
-          <li data-part="roller">Каток двубортный</li>
-          <li data-part="carrier">Каток поддерживающий</li>
-          <li data-part="drive">Запчасти бортового редуктора</li>
-          <li data-part="drive">Подшипники в бортовой редуктор</li>
-          <li data-part="chain">Болты-гайки башмачные (башмака)</li>
-          <li data-part="chain">Болты-гайки траковые (трака)</li>
-          <li data-part="sprocket">Болты крепления звёздочки, ведущего колеса, сегментов</li>
+          <li data-part="chain" tabindex="0">Цепь гусеничная</li>
+          <li data-part="track" tabindex="0">Лента гусеничная (гусеницы)</li>
+          <li data-part="track" tabindex="0">Гусеница</li>
+          <li data-part="sprocket" tabindex="0">Колесо ведущее</li>
+          <li data-part="sprocket" tabindex="0">Звёздочка</li>
+          <li data-part="ring" tabindex="0">Венец ведущего колеса</li>
+          <li data-part="idler" tabindex="0">Колесо направляющее</li>
+          <li data-part="idler" tabindex="0">Ленивец</li>
+          <li data-part="segments" tabindex="0">Сегменты ведущего колеса</li>
+          <li data-part="segments" tabindex="0">Сегменты звёздочки</li>
+          <li data-part="roller" tabindex="0">Каток опорный</li>
+          <li data-part="roller-s" tabindex="0">Каток однобортный</li>
+          <li data-part="roller-d" tabindex="0">Каток двубортный</li>
+          <li data-part="carrier" tabindex="0">Каток поддерживающий</li>
+          <li data-part="drive" tabindex="0">Запчасти бортового редуктора</li>
+          <li data-part="bearings" tabindex="0">Подшипники в бортовой редуктор</li>
+          <li data-part="shoe-bolts" tabindex="0">Болты-гайки башмачные (башмака)</li>
+          <li data-part="track-bolts" tabindex="0">Болты-гайки траковые (трака)</li>
+          <li data-part="sprocket-bolts" tabindex="0">Болты крепления звёздочки, ведущего колеса, сегментов</li>
           <li>Фильтры, масла, технические жидкости</li>
         </ol>
         <div class="panel-cta">
@@ -417,34 +439,37 @@ dialog .btn{width:100%;justify-content:center}
       <div class="panel-card">
         <div class="photo"><img src="img/bg-prod-2.png" alt="Бульдозер ЧЕТРА" width="424" height="256" loading="lazy"></div>
         <h3>Бульдозеры Т-130, Т-170, Б-10, Б-11, ДСТ-Урал</h3>
-        <ul class="models"><li>Т-130</li><li>Т-170</li><li>Б-10</li><li>Б-11</li><li>ДСТ-Урал</li></ul>
-        <div class="scheme" data-scheme></div>
-        <p class="scheme-note">Наведите на деталь в списке — покажем, где она стоит.</p>
+        <div class="model-switch" role="group" aria-label="Модель">
+          <button type="button" data-model="t130" aria-pressed="true">Т-130</button><button type="button" data-model="t170" aria-pressed="false">Т-170</button><button type="button" data-model="b10" aria-pressed="false">Б-10М</button><button type="button" data-model="b11" aria-pressed="false">Б-11</button><button type="button" data-model="dst" aria-pressed="false">ДСТ-Урал</button>
+        </div>
+        <div class="scheme" data-model="t130"></div>
+        <p class="scheme-note" aria-live="polite"></p>
+        <p class="scheme-src">Количество деталей — по заводской документации и каталогам. Пропорции схематичные.</p>
       </div>
       <div class="panel-card parts">
         <h3>К заказу доступны запчасти</h3>
         <p>Нет нужной позиции — менеджер подберёт и привезёт.</p>
         <ol>
-          <li data-part="chain">Цепь гусеничная</li>
-          <li data-part="chain">Лента гусеничная (гусеницы)</li>
-          <li data-part="chain">Гусеница</li>
-          <li data-part="sprocket">Колесо ведущее</li>
-          <li data-part="sprocket">Звёздочка</li>
-          <li data-part="sprocket">Венец ведущего колеса</li>
-          <li data-part="idler">Колесо направляющее</li>
-          <li data-part="idler">Ленивец</li>
-          <li data-part="sprocket">Сегменты ведущего колеса</li>
-          <li data-part="sprocket">Сегменты звёздочки</li>
-          <li data-part="roller">Каток опорный</li>
-          <li data-part="roller">Каток однобортный</li>
-          <li data-part="roller">Каток двубортный</li>
-          <li data-part="carrier">Каток поддерживающий</li>
-          <li data-part="drive">Запчасти бортового редуктора</li>
-          <li data-part="drive">Шестерня двойная, ведущая</li>
-          <li data-part="drive">Подшипники в бортовой редуктор</li>
-          <li data-part="chain">Болты-гайки башмачные (башмака)</li>
-          <li data-part="chain">Болты-гайки траковые (трака)</li>
-          <li data-part="sprocket">Болты крепления звёздочки, ведущего колеса, сегментов</li>
+          <li data-part="chain" tabindex="0">Цепь гусеничная</li>
+          <li data-part="track" tabindex="0">Лента гусеничная (гусеницы)</li>
+          <li data-part="track" tabindex="0">Гусеница</li>
+          <li data-part="sprocket" tabindex="0">Колесо ведущее</li>
+          <li data-part="sprocket" tabindex="0">Звёздочка</li>
+          <li data-part="ring" tabindex="0">Венец ведущего колеса</li>
+          <li data-part="idler" tabindex="0">Колесо направляющее</li>
+          <li data-part="idler" tabindex="0">Ленивец</li>
+          <li data-part="segments" tabindex="0">Сегменты ведущего колеса</li>
+          <li data-part="segments" tabindex="0">Сегменты звёздочки</li>
+          <li data-part="roller" tabindex="0">Каток опорный</li>
+          <li data-part="roller-s" tabindex="0">Каток однобортный</li>
+          <li data-part="roller-d" tabindex="0">Каток двубортный</li>
+          <li data-part="carrier" tabindex="0">Каток поддерживающий</li>
+          <li data-part="drive" tabindex="0">Запчасти бортового редуктора</li>
+          <li data-part="gear2" tabindex="0">Шестерня двойная, ведущая</li>
+          <li data-part="bearings" tabindex="0">Подшипники в бортовой редуктор</li>
+          <li data-part="shoe-bolts" tabindex="0">Болты-гайки башмачные (башмака)</li>
+          <li data-part="track-bolts" tabindex="0">Болты-гайки траковые (трака)</li>
+          <li data-part="sprocket-bolts" tabindex="0">Болты крепления звёздочки, ведущего колеса, сегментов</li>
           <li>Фильтры, масла, технические жидкости</li>
         </ol>
         <div class="panel-cta">
@@ -459,30 +484,31 @@ dialog .btn{width:100%;justify-content:center}
         <h3>Экскаватор ЭО-3223</h3>
         <p class="maker">ОАО «Кохановский экскаваторный завод»</p>
         <ul class="models"><li>ЭО-3223</li></ul>
-        <div class="scheme" data-scheme></div>
-        <p class="scheme-note">Наведите на деталь в списке — покажем, где она стоит.</p>
+        <div class="scheme" data-model="eo"></div>
+        <p class="scheme-note" aria-live="polite"></p>
+        <p class="scheme-src">Количество деталей — по заводской документации и каталогам. Пропорции схематичные.</p>
       </div>
       <div class="panel-card parts">
         <h3>К заказу доступны запчасти</h3>
         <p>Нет нужной позиции — менеджер подберёт и привезёт.</p>
         <ol>
-          <li data-part="chain">Цепь гусеничная</li>
-          <li data-part="chain">Лента гусеничная (гусеницы)</li>
-          <li data-part="chain">Гусеница</li>
-          <li data-part="sprocket">Колесо ведущее</li>
-          <li data-part="sprocket">Звёздочка</li>
-          <li data-part="sprocket">Венец ведущего колеса</li>
-          <li data-part="idler">Колесо направляющее</li>
-          <li data-part="idler">Ленивец</li>
-          <li data-part="sprocket">Сегменты ведущего колеса</li>
-          <li data-part="sprocket">Сегменты звёздочки</li>
-          <li data-part="roller">Каток опорный</li>
-          <li data-part="carrier">Каток поддерживающий</li>
-          <li data-part="drive">Запчасти бортового редуктора</li>
-          <li data-part="drive">Подшипники в бортовой редуктор</li>
-          <li data-part="chain">Болты-гайки башмачные (башмака)</li>
-          <li data-part="chain">Болты-гайки траковые (трака)</li>
-          <li data-part="sprocket">Болты крепления звёздочки, ведущего колеса, сегментов</li>
+          <li data-part="chain" tabindex="0">Цепь гусеничная</li>
+          <li data-part="track" tabindex="0">Лента гусеничная (гусеницы)</li>
+          <li data-part="track" tabindex="0">Гусеница</li>
+          <li data-part="sprocket" tabindex="0">Колесо ведущее</li>
+          <li data-part="sprocket" tabindex="0">Звёздочка</li>
+          <li data-part="ring" tabindex="0">Венец ведущего колеса</li>
+          <li data-part="idler" tabindex="0">Колесо направляющее</li>
+          <li data-part="idler" tabindex="0">Ленивец</li>
+          <li data-part="segments" tabindex="0">Сегменты ведущего колеса</li>
+          <li data-part="segments" tabindex="0">Сегменты звёздочки</li>
+          <li data-part="roller" tabindex="0">Каток опорный</li>
+          <li data-part="carrier" tabindex="0">Каток поддерживающий</li>
+          <li data-part="drive" tabindex="0">Запчасти бортового редуктора</li>
+          <li data-part="bearings" tabindex="0">Подшипники в бортовой редуктор</li>
+          <li data-part="shoe-bolts" tabindex="0">Болты-гайки башмачные (башмака)</li>
+          <li data-part="track-bolts" tabindex="0">Болты-гайки траковые (трака)</li>
+          <li data-part="sprocket-bolts" tabindex="0">Болты крепления звёздочки, ведущего колеса, сегментов</li>
           <li>Фильтры, масла, технические жидкости</li>
         </ol>
         <div class="panel-cta">
@@ -613,30 +639,9 @@ dialog .btn{width:100%;justify-content:center}
   </form>
 </dialog>
 
-<!-- Undercarriage schematic, cloned into each catalog panel -->
-<template id="scheme-tpl">
-  <svg viewBox="0 0 520 170" role="img" aria-label="Схема ходовой части">
-    <g fill="none" stroke="#16181b" stroke-width="1.5">
-      <rect class="part" data-p="chain" x="20" y="30" width="480" height="118" rx="59" fill="#ebe9e3" stroke-width="10" stroke-dasharray="10 4" stroke="#b9b5aa"/>
-      <rect x="40" y="48" width="440" height="82" rx="41" fill="#f4f3ef"/>
-      <circle class="part" data-p="idler" cx="80" cy="89" r="44" fill="#fff"/>
-      <circle cx="80" cy="89" r="10" fill="#16181b"/>
-      <g class="part" data-p="sprocket" fill="#fff">
-        <circle cx="440" cy="89" r="46" stroke-dasharray="6 3" stroke-width="5"/>
-        <circle cx="440" cy="89" r="38"/>
-      </g>
-      <rect class="part" data-p="drive" x="420" y="69" width="40" height="40" rx="8" fill="#ebe9e3"/>
-      <g class="part" data-p="roller" fill="#fff">
-        <circle cx="160" cy="118" r="17"/><circle cx="210" cy="118" r="17"/><circle cx="260" cy="118" r="17"/><circle cx="310" cy="118" r="17"/><circle cx="360" cy="118" r="17"/>
-      </g>
-      <g class="part" data-p="carrier" fill="#fff"><circle cx="200" cy="48" r="12"/><circle cx="320" cy="48" r="12"/></g>
-    </g>
-    <g font-family="JetBrains Mono" font-size="10" fill="#676b71">
-      <text x="56" y="20">ленивец</text><text x="402" y="20">звёздочка</text><text x="222" y="22">поддерживающие</text><text x="214" y="166">опорные катки</text>
-    </g>
-  </svg>
-</template>
 
+
+<script src="scheme.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
@@ -660,14 +665,38 @@ document.querySelectorAll('[data-go]').forEach(c => c.addEventListener('click', 
   window.lenis ? lenis.scrollTo(el, { offset: -80 }) : el.scrollIntoView();
 }));
 
-const tpl = document.getElementById('scheme-tpl');
-document.querySelectorAll('[data-scheme]').forEach(box => box.append(tpl.content.cloneNode(true)));
+// Undercarriage schematic per machine; list items light up their part and explain it.
 document.querySelectorAll('.panel').forEach(panel => {
+  const box = panel.querySelector('.scheme'), note = panel.querySelector('.scheme-note');
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('role', 'img'); box.append(svg);
+  const idle = () => { note.innerHTML = `<b>${Scheme.MODELS[box.dataset.model].title}:</b> ${Scheme.MODELS[box.dataset.model].spec}. Наведите на деталь в списке — покажем, где она стоит.`; };
+  let active = null;
+  const draw = key => { active?.classList.remove('hl'); active = null; box.dataset.model = key; Scheme.render(svg, key); idle(); };
+  draw(box.dataset.model);
+  panel.querySelectorAll('.model-switch button').forEach(b => b.addEventListener('click', () => {
+    panel.querySelectorAll('.model-switch button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    draw(b.dataset.model);
+  }));
+  const show = li => {
+    if (active) { active.classList.remove('hl'); Scheme.highlight(svg, box.dataset.model, active.dataset.part, false); }
+    active = li;
+    if (!li) return idle();
+    li.classList.add('hl');
+    const text = Scheme.highlight(svg, box.dataset.model, li.dataset.part, true);
+    note.innerHTML = `<b>${li.textContent}.</b> ${text}`;
+  };
   panel.querySelectorAll('li[data-part]').forEach(li => {
-    const toggle = on => panel.querySelectorAll(`.part[data-p="${li.dataset.part}"]`).forEach(p => p.classList.toggle('on', on));
-    li.addEventListener('mouseenter', () => toggle(true));
-    li.addEventListener('mouseleave', () => toggle(false));
+    li.addEventListener('mouseenter', () => show(li));
+    li.addEventListener('focus', () => show(li));
+    li.addEventListener('click', () => {
+      show(active === li ? null : li);
+      // Phones: the list sits under the schematic, so bring the schematic into view.
+      const r = box.getBoundingClientRect();
+      if (active && (r.bottom < 80 || r.top > innerHeight)) window.lenis ? lenis.scrollTo(box, { offset: -90 }) : box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
   });
+  panel.querySelector('.parts ol').addEventListener('mouseleave', () => show(null));
 });
 
 const dlg = document.getElementById('callback');
