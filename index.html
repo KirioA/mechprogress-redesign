@@ -135,7 +135,7 @@ section{padding:112px 0}
 .models li{list-style:none;font:500 13px/1 var(--m);border:1px solid var(--line);border-radius:6px;padding:8px 10px;color:var(--ink)}
 .maker{font-size:15px;color:var(--muted)}
 .scheme{margin:8px 0 0}
-.scheme svg{width:100%;height:auto;display:block}
+.scheme svg{width:100%;height:auto;aspect-ratio:2.2;display:block}
 .scheme .part{fill:#fff;stroke:#16181b;stroke-width:7;transition:fill .25s,stroke .25s}
 .scheme .links{fill:none;stroke:#d3cec2;stroke-width:80;stroke-linejoin:round;transition:stroke .25s}
 .scheme .frame{fill:#ebe9e3;stroke:#b9b5aa;stroke-width:6}
@@ -155,7 +155,7 @@ section{padding:112px 0}
 .model-switch{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 18px}
 .model-switch button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:500 14px/1 var(--t);color:var(--ink);cursor:pointer}
 .model-switch button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
-.scheme-note{font-size:14px;color:var(--muted);margin-top:10px;min-height:42px}
+.scheme-note{font-size:14px;color:var(--muted);margin-top:10px}
 .scheme-note b{color:var(--ink);font-weight:600}
 .scheme-src{font-size:12px;color:var(--muted);margin-top:8px}
 .parts li[data-part]{cursor:pointer}
@@ -286,6 +286,11 @@ dialog .btn{width:100%;justify-content:center}
   .row{grid-template-columns:1fr;gap:4px}
   .dealers{grid-template-columns:1fr}
   .scheme .lbl{display:none}
+  body:has(.nav.hide) .parts .scheme-wrap{top:0}
+  .parts .scheme-note{font-size:13px;margin-top:6px}
+  .parts .scheme-wrap{position:sticky;top:76px;transition:top .4s cubic-bezier(.2,.8,.2,1);z-index:2;background:#fff;margin:0 -24px 6px;padding:6px 24px 10px;border-bottom:1px solid var(--line)}
+  .parts .scheme-src{display:none}
+  .parts .scheme svg{aspect-ratio:2.6}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -400,9 +405,11 @@ dialog .btn{width:100%;justify-content:center}
         <div class="photo"><img src="img/bg-prod-1.png" alt="Бульдозер Shantui SD-16" width="427" height="256" loading="lazy"></div>
         <h3>Бульдозер Shantui SD-16</h3>
         <ul class="models"><li>Шантуй СД-16 (Шантуи)</li><li>SD-16 (СД-16)</li><li>Белдозер</li></ul>
+        <div class="scheme-wrap">
         <div class="scheme" data-model="sd16"></div>
         <p class="scheme-note" aria-live="polite"></p>
         <p class="scheme-src">Количество деталей — по заводской документации и каталогам. Пропорции схематичные.</p>
+        </div>
       </div>
       <div class="panel-card parts">
         <h3>К заказу доступны запчасти</h3>
@@ -442,9 +449,11 @@ dialog .btn{width:100%;justify-content:center}
         <div class="model-switch" role="group" aria-label="Модель">
           <button type="button" data-model="t130" aria-pressed="true">Т-130</button><button type="button" data-model="t170" aria-pressed="false">Т-170</button><button type="button" data-model="b10" aria-pressed="false">Б-10М</button><button type="button" data-model="b11" aria-pressed="false">Б-11</button><button type="button" data-model="dst" aria-pressed="false">ДСТ-Урал</button>
         </div>
+        <div class="scheme-wrap">
         <div class="scheme" data-model="t130"></div>
         <p class="scheme-note" aria-live="polite"></p>
         <p class="scheme-src">Количество деталей — по заводской документации и каталогам. Пропорции схематичные.</p>
+        </div>
       </div>
       <div class="panel-card parts">
         <h3>К заказу доступны запчасти</h3>
@@ -484,9 +493,11 @@ dialog .btn{width:100%;justify-content:center}
         <h3>Экскаватор ЭО-3223</h3>
         <p class="maker">ОАО «Кохановский экскаваторный завод»</p>
         <ul class="models"><li>ЭО-3223</li></ul>
+        <div class="scheme-wrap">
         <div class="scheme" data-model="eo"></div>
         <p class="scheme-note" aria-live="polite"></p>
         <p class="scheme-src">Количество деталей — по заводской документации и каталогам. Пропорции схематичные.</p>
+        </div>
       </div>
       <div class="panel-card parts">
         <h3>К заказу доступны запчасти</h3>
@@ -656,6 +667,7 @@ function openTab(id) {
     t.setAttribute('aria-selected', on);
     document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
   });
+  document.getElementById(id).fitNote?.();
   window.ScrollTrigger && ScrollTrigger.refresh();
 }
 tabs.forEach(t => t.addEventListener('click', () => openTab(t.getAttribute('aria-controls'))));
@@ -668,12 +680,40 @@ document.querySelectorAll('[data-go]').forEach(c => c.addEventListener('click', 
 // Undercarriage schematic per machine; list items light up their part and explain it.
 document.querySelectorAll('.panel').forEach(panel => {
   const box = panel.querySelector('.scheme'), note = panel.querySelector('.scheme-note');
+  const wrap = panel.querySelector('.scheme-wrap'), [infoCard, partsCard] = panel.querySelectorAll('.panel-card');
+  const models = [...panel.querySelectorAll('.model-switch button')].map(b => b.dataset.model);
+  if (!models.length) models.push(box.dataset.model);
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('role', 'img'); box.append(svg);
-  const idle = () => { note.innerHTML = `<b>${Scheme.MODELS[box.dataset.model].title}:</b> ${Scheme.MODELS[box.dataset.model].spec}. Наведите на деталь в списке — покажем, где она стоит.`; };
+  const idle = () => { note.innerHTML = `<b>${Scheme.MODELS[box.dataset.model].title}:</b> ${Scheme.MODELS[box.dataset.model].spec}. Выберите деталь в списке.`; };
   let active = null;
   const draw = key => { active?.classList.remove('hl'); active = null; box.dataset.model = key; Scheme.render(svg, key); idle(); };
   draw(box.dataset.model);
+
+  // Reserve the height of the longest caption of this tab, so the list below never jumps.
+  const fitNote = () => {
+    if (panel.hidden || !note.clientWidth) return;
+    const probe = note.cloneNode(); probe.removeAttribute('aria-live');
+    probe.style.cssText = `position:absolute;visibility:hidden;width:${note.clientWidth}px;min-height:0`;
+    note.parentNode.append(probe);
+    let max = 0;
+    const lis = [...panel.querySelectorAll('li[data-part]')];
+    models.forEach(k => {
+      const m = Scheme.MODELS[k];
+      [`<b>${m.title}:</b> ${m.spec}. Выберите деталь в списке.`,
+       ...lis.map(li => `<b>${li.textContent}.</b> ${Scheme.note(k, li.dataset.part)}`)]
+        .forEach(h => { probe.innerHTML = h; max = Math.max(max, Math.ceil(probe.getBoundingClientRect().height)); });
+    });
+    probe.remove();
+    note.style.minHeight = max + 'px';
+  };
+  // Phones: the schematic sticks on top of the parts list, so a tapped part is always in view.
+  const mq = matchMedia('(max-width: 1000px)');
+  const place = () => { mq.matches ? partsCard.insertBefore(wrap, partsCard.querySelector('ol')) : infoCard.append(wrap); fitNote(); };
+  mq.addEventListener('change', place);
+  addEventListener('resize', fitNote);
+  panel.fitNote = fitNote;
+  place();
   panel.querySelectorAll('.model-switch button').forEach(b => b.addEventListener('click', () => {
     panel.querySelectorAll('.model-switch button').forEach(x => x.setAttribute('aria-pressed', x === b));
     draw(b.dataset.model);
@@ -689,12 +729,7 @@ document.querySelectorAll('.panel').forEach(panel => {
   panel.querySelectorAll('li[data-part]').forEach(li => {
     li.addEventListener('mouseenter', () => show(li));
     li.addEventListener('focus', () => show(li));
-    li.addEventListener('click', () => {
-      show(active === li ? null : li);
-      // Phones: the list sits under the schematic, so bring the schematic into view.
-      const r = box.getBoundingClientRect();
-      if (active && (r.bottom < 80 || r.top > innerHeight)) window.lenis ? lenis.scrollTo(box, { offset: -90 }) : box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+    li.addEventListener('click', () => show(active === li ? null : li));
   });
   panel.querySelector('.parts ol').addEventListener('mouseleave', () => show(null));
 });

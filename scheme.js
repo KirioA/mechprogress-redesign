@@ -293,7 +293,9 @@ function highlight(svg, key, partKey, on) {
   // Single/double flange: if the order is unknown every roller carries both classes, so all light up.
   const q = partKey === 'roller-s' ? '.roller-s' : partKey === 'roller-d' ? '.roller-d' : sel;
   if (q) svg.querySelectorAll(q).forEach(e => e.classList.toggle('on', on));
-  return m.notes[NOTE_KEY[partKey] || partKey] || '';
+  return note(key, partKey);
 }
 
-window.Scheme = { MODELS, render, highlight };
+const note = (key, partKey) => MODELS[key].notes[NOTE_KEY[partKey] || partKey] || '';
+
+window.Scheme = { MODELS, render, highlight, note };
