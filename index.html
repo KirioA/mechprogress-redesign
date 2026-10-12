@@ -728,11 +728,12 @@ document.querySelectorAll('.panel').forEach(panel => {
     note.innerHTML = `<b>${li.textContent}.</b> ${text}`;
   };
   panel.querySelectorAll('li[data-part]').forEach(li => {
-    li.addEventListener('mouseenter', () => show(li));
-    li.addEventListener('focus', () => show(li));
-    li.addEventListener('click', () => show(active === li ? null : li));
+    // A tap fires hover, focus and click in a row, so only a real mouse uses hover and a click never toggles off.
+    li.addEventListener('pointerenter', e => e.pointerType === 'mouse' && show(li));
+    li.addEventListener('focus', () => active !== li && show(li));
+    li.addEventListener('click', () => active !== li && show(li));
   });
-  panel.querySelector('.parts ol').addEventListener('mouseleave', () => show(null));
+  panel.querySelector('.parts ol').addEventListener('pointerleave', e => e.pointerType === 'mouse' && show(null));
 });
 
 const dlg = document.getElementById('callback');
